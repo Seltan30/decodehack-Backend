@@ -5,7 +5,6 @@ require('dotenv').config();
 const cors = require('cors');
 const {mongoose} = require('mongoose');
 const cron = require('node-cron');
-const resetData = require('./cron/resetData'); 
 
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {console.log('MongoDB connected')})
