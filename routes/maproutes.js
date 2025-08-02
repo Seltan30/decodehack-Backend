@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-const { registerUser,loginUser,getProfile} = require('../controllers/authcontroller');
+const {} = require('../controllers/mapscontroller');
 
 router.use(
     cors({
@@ -9,10 +9,5 @@ router.use(
         origin: "http://localhost:5173",
     })
 )
-
-router.post('/register', registerUser);
-router.post('/login', loginUser);
-router.get('/profile', getProfile);
-
 
 module.exports = router;

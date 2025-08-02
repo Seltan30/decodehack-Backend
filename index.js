@@ -18,6 +18,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', require('./routes/authroutes'));
+app.use('/maps', require('./routes/maproutes'));
 
 app.get('/', (req, res) => {
   res.send('Hello from Express!');

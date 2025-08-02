@@ -132,40 +132,8 @@ const getProfile = async (req, res) => {
     }
 };
 
-const getSkips = async (req, res) => {
-    try {
-        const authHeader = req.headers.authorization;
-        if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return res.status(401).json({ success: false, message: 'No token provided' });
-        }
-
-        const token = authHeader.split(' ')[1];
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const userEmail = decoded.email;
-
-        const user = await User.findOne({ email: userEmail });
-
-        if (!user) {
-            return res.status(404).json({ success: false, message: 'User not found' });
-        }
-
-        return res.json({
-            success: true,
-            message: 'Skips retrieved',
-            data: {
-                skipsRemaining: user.skipsRemaining
-            }
-        });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ success: false, message: 'Error fetching skips' });
-    }
-};
-
-
 module.exports = {
     registerUser,
     loginUser,
     getProfile,
-    getSkips
 }
