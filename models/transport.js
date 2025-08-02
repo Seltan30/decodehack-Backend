@@ -5,7 +5,8 @@ const transportSchemaSchema = new Schema({
     name: { type: String, required: true },
     price: { type: Number, required: true },
     comfort: { type: Number, required: true },
-
+    startingPoint: { type: String, required: true },
+    destination: { type: String, required: true },
 },
 { timestamps: true });
 
